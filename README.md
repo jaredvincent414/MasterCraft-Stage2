@@ -20,7 +20,7 @@ A RESTful API for processing payments, designed for small businesses. This API p
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/jaredvincent414/MasterCraft-Stage2
 cd payment-gateway
 ```
 
