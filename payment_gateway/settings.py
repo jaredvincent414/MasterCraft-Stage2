@@ -120,7 +120,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
@@ -151,5 +150,5 @@ CORS_ALLOW_ALL_ORIGINS = True  # For development only, configure properly in pro
 PAYPAL_MODE = os.getenv('PAYPAL_MODE', 'sandbox')  # sandbox or live
 PAYPAL_CLIENT_ID = os.getenv('PAYPAL_CLIENT_ID', '')
 PAYPAL_CLIENT_SECRET = os.getenv('PAYPAL_CLIENT_SECRET', '')
-PAYPAL_RETURN_URL = os.getenv('PAYPAL_RETURN_URL', 'http://localhost:8000/api/v1/payments/execute/')
-PAYPAL_CANCEL_URL = os.getenv('PAYPAL_CANCEL_URL', 'http://localhost:8000/api/v1/payments/cancel/')
+PAYPAL_RETURN_URL = os.getenv('PAYPAL_RETURN_URL', 'http://localhost:8000/api/v1/payments/{payment_id}/execute/')
+PAYPAL_CANCEL_URL = os.getenv('PAYPAL_CANCEL_URL', 'http://localhost:8000/api/v1/payments/{payment_id}/cancel/')
