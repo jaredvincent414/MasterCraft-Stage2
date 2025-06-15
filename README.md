@@ -1,105 +1,134 @@
-# Payment Gateway API
 
-A RESTful API for processing payments, designed for small businesses. This API provides endpoints for initiating and tracking payments without requiring user authentication.
+# Payment Gateway API for Small Businesses
 
-## Features
+This **RESTful API** is designed to simplify payment processing for small businesses. It provides secure and straightforward endpoints for initiating and tracking payments, all without user authentication. Get up and running quickly to start accepting payments\!
 
-- RESTful API with versioning
-- Payment processing endpoints
-- No authentication required
-- Automated testing
-- CI/CD pipeline with GitHub Actions
+## ✨ Features
 
-## Prerequisites
+  * **RESTful API with Versioning**: This is a clean and organized API structure that's easy to understand and use, with versioning for future scalability.
+  * **Payment Processing Endpoints**: Dedicated endpoints to securely handle payment initiation and status retrieval.
+  * **No Authentication Required**: Streamlined access for quick integration and use.
+  * **Automated Testing**: A Comprehensive test suite ensures reliability and stability.
+  * **CI/CD Pipeline with GitHub Actions**: Automated deployment and testing workflows for consistent updates and quality.
 
-- Python 3.8 or higher
-- pip (Python package manager)
-- Virtual environment (recommended)
+-----
+
+## Live Demo
+
+This API is currently deployed and live on Render\! You can access it here:
+
+**[https://mastercraft-stage2-3.onrender.com](https://mastercraft-stage2-3.onrender.com)**
+
+-----
+
+## Requirements
+
+  * **Python 3.8 or higher**
+  * **pip** (Python package manager)
+  * **Virtual environment** (highly recommended for dependency management)
+
+-----
 
 ## Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/jaredvincent414/MasterCraft-Stage2
-cd payment-gateway
-```
+Follow these simple steps to get the API running locally:
 
-2. Create and activate a virtual environment:
-```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-```
+1.  **Clone the repository:**
 
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+    ```bash
+    git clone https://github.com/jaredvincent414/MasterCraft-Stage2
+    cd payment-gateway
+    ```
 
-4. Run migrations:
-```bash
-python manage.py migrate
-```
+2.  **Create and activate a virtual environment:**
 
-5. Start the development server:
-```bash
-python manage.py runserver
-```
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+    ```
+
+3.  **Install dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Run migrations:**
+
+    ```bash
+    python manage.py migrate
+    ```
+
+5.  **Start the development server:**
+
+    ```bash
+    python manage.py runserver
+    ```
+
+-----
 
 ## API Endpoints
 
-### 1. Initiate a Payment
-- **URL**: `/api/v1/payments/`
-- **Method**: `POST`
-- **Request Body**:
-```json
-{
-    "customer_name": "John Doe",
-    "customer_email": "john@example.com",
-    "amount": 50.00
-}
-```
+Here's how you can interact with the API:
 
-### 2. Retrieve Payment Status
-- **URL**: `/api/v1/payments/{id}/`
-- **Method**: `GET`
-- **Response**:
-```json
-{
-    "payment": {
-        "id": "PAY-123",
+### 1\. Initiate a Payment
+
+  * **URL**: `/api/v1/payments/`
+
+  * **Method**: `POST`
+
+  * **Request Body Example**:
+
+    ```json
+    {
         "customer_name": "John Doe",
         "customer_email": "john@example.com",
-        "amount": 50.00,
-        "status": "completed"
-    },
-    "status": "success",
-    "message": "Payment details retrieved successfully."
-}
-```
+        "amount": 50.00
+    }
+    ```
+
+### 2\. Retrieve Payment Status
+
+  * **URL**: `/api/v1/payments/{id}/` (Replace `{id}` with the actual payment ID)
+
+  * **Method**: `GET`
+
+  * **Successful Response Example**:
+
+    ```json
+    {
+        "payment": {
+            "id": "PAY-123",
+            "customer_name": "John Doe",
+            "customer_email": "john@example.com",
+            "amount": 50.00,
+            "status": "completed"
+        },
+        "status": "success",
+        "message": "Payment details retrieved successfully."
+    }
+    ```
+
+-----
 
 ## Running Tests
 
-To run the test suite:
+Ensure everything is working as expected by running the test suite:
+
 ```bash
 python manage.py test
 ```
 
+-----
+
 ## CI/CD Pipeline
 
-The project includes a GitHub Actions workflow that:
-1. Runs on push to main branch and pull requests
-2. Sets up Python environment
-3. Installs dependencies
-4. Runs tests
+This project leverages **GitHub Actions** for an automated CI/CD pipeline. This workflow automatically:
 
-## Contributing
+1.  Runs on pushes to the `main` branch and on pull requests.
+2.  Sets up the Python environment.
+3.  Installs all necessary dependencies.
+4.  Executes the test suite to maintain code quality.
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+-----
 
-## License
-
-This project is licensed under the MIT License. 
